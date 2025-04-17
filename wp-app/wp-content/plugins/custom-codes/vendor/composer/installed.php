@@ -1,0 +1,41 @@
+<?php return array(
+    'root' => array(
+        'name' => 'bilaltas/custom-codes',
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'd6d93262d64c59866a6587bd22d8675e606eee17',
+        'type' => 'library',
+        'install_path' => __DIR__ . '/../../',
+        'aliases' => array(),
+        'dev' => false,
+    ),
+    'versions' => array(
+        'bilaltas/custom-codes' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'd6d93262d64c59866a6587bd22d8675e606eee17',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../../',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'freemius/wordpress-sdk' => array(
+            'pretty_version' => '2.11.0',
+            'version' => '2.11.0.0',
+            'reference' => '9ad5477e4f0a39999b96bb21d0327bc6841d4590',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../freemius/wordpress-sdk',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'scssphp/scssphp' => array(
+            'pretty_version' => 'v1.13.0',
+            'version' => '1.13.0.0',
+            'reference' => '63d1157457e5554edf00b0c1fabab4c1511d2520',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../scssphp/scssphp',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+    ),
+);

@@ -1,0 +1,22 @@
+.wp-block-file {
+    $el: &;
+
+    @extend %block-spacing-xs;
+
+    a {
+        @extend %fr-link;
+        @extend %fr-link-download;
+
+        @include editor-only {
+            &::before {
+                @include fr-link-download-detail;
+
+                content: "Type de fichier – poids";
+            }
+        }
+    }
+
+    #{$el}__button {
+        display: none;
+    }
+}

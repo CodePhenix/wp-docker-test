@@ -1,0 +1,52 @@
+.wp-block-group {
+    $el: &;
+
+    &--hero {
+        @extend %block-spacing-lg;
+
+        #{context-selector('&.alignfull.has-background', '[data-align="full"] > &.has-background')} {
+            padding-top: $spacing-12;
+            padding-bottom: $spacing-12;
+        }
+
+        @include style-only {
+            body:not(.single) .blocks-container > &.alignfull.has-background:first-child {
+                position: relative;
+                padding-top: 0;
+
+                &::before {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: -1;
+                    width: 100%;
+                    height: calc(100% + 500px);
+                    content: "";
+                    background: inherit;
+                }
+            }
+        }
+
+        .wp-block-columns {
+            row-gap: $spacing-9;
+        }
+
+        @include breakpoints(md, max) {
+            #{$el}__inner-container > .wp-block-image:last-child,
+            &:not(.wp-block-group--hero-icon) .wp-block-column:last-child:has(.wp-block-image) {
+                margin: 0 calc(var(--external-gutter) * -1) -#{$spacing-12} calc(var(--external-gutter) * -1) !important;
+            }
+
+            &.wp-block-group--hero-icon .wp-block-column:last-child:has(.wp-block-image) {
+                margin-bottom: -#{$spacing-8} !important;
+            }
+        }
+
+        @include breakpoints(md) {
+            #{context-selector('&.alignfull.has-background', '[data-align="full"] > &.has-background')} {
+                padding-top: $spacing-14;
+                padding-bottom: $spacing-14;
+            }
+        }
+    }
+}

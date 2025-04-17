@@ -1,0 +1,149 @@
+.wp-block-media-text {
+    $el: &;
+    $vertical-padding: calc(var(--column-gap) / 2);
+
+    --text-outter-x-padding: 0;
+    --media-inner-x-padding: #{$vertical-padding};
+
+    @extend %block-spacing-sm;
+
+    #{context-selector("&.alignwide", "[data-align='wide'] > &")} {
+        @extend %block-spacing-md;
+    }
+
+    #{context-selector("&.alignfull", "[data-align='full'] > &")} {
+        @extend %block-spacing-lg;
+    }
+
+    figure#{$el}__media {
+        padding: 0 var(--media-inner-x-padding) 0 0;
+    }
+
+    #{$el}__content {
+        padding: 0 var(--text-outter-x-padding) 0 $vertical-padding;
+    }
+
+    &.is-image-fill {
+        figure#{$el}__media {
+            position: relative;
+            background-size: 0 !important;
+
+            &::after {
+                position: absolute;
+                top: 0;
+                right: var(--media-inner-x-padding);
+                bottom: 0;
+                left: 0;
+                content: "";
+                background: inherit;
+                background-size: cover !important;
+            }
+        }
+    }
+
+    &.has-media-on-the-right {
+
+        figure#{$el}__media {
+            padding-right: 0;
+            padding-left: var(--media-inner-x-padding);
+        }
+
+        #{$el}__content {
+            padding-right: $vertical-padding;
+            padding-left: var(--text-outter-x-padding);
+        }
+
+        &.is-image-fill {
+            figure#{$el}__media {
+                &::after {
+                    right: 0;
+                    left: var(--media-inner-x-padding);
+                }
+            }
+        }
+    }
+
+    @include editor-only {
+        --handle-x-margin: var(--media-inner-x-padding);
+
+        .components-resizable-box__handle {
+            margin-right: var(--handle-x-margin);
+        }
+
+        &.has-media-on-the-right {
+            .components-resizable-box__handle {
+                margin-right: 0;
+                margin-left: var(--handle-x-margin);
+            }
+        }
+    }
+
+    @include breakpoints(md, max) {
+        &.is-stacked-on-mobile {
+            grid-template-columns: 100%;
+
+            #{$el}__media {
+                grid-row: 1;
+                grid-column: 1;
+                margin-bottom: $spacing-6 !important;
+            }
+
+            figure#{$el}__media {
+                padding-right: 0;
+                padding-left: 0;
+            }
+
+            #{$el}__content {
+                grid-row: 2;
+                grid-column: 1;
+                padding-right: 0;
+                padding-left: 0;
+            }
+        }
+
+        #{context-selector("&.alignfull", "[data-align='full'] > &")} {
+            #{$el}__content {
+                max-width: var(--responsive--aligndefault-width);
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+    }
+
+    @include breakpoints(md) {
+        #{context-selector("&.alignwide", "[data-align='wide'] > &")} {
+            --media-inner-x-padding: calc(#{$vertical-padding} + #{column(1, 1, 6)});
+        }
+
+        #{context-selector("&.alignfull", "[data-align='full'] > &")} {
+            --text-outter-x-padding: var(--external-gutter);
+            --media-inner-x-padding: calc((100% - #{$vertical-padding} - var(--external-gutter)) * #{column-factor(1, 1, 6)} + #{$vertical-padding});
+
+            #{$el}__content {
+                max-width: column-px(6);
+            }
+
+            &.has-media-on-the-right {
+                #{$el}__content {
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+
+    @include breakpoints(lg) {
+        #{context-selector("&.alignfull", "[data-align='full'] > &")} {
+            --media-inner-x-padding: #{column-px(1, 1.5)};
+
+            #{$el}__content {
+                max-width: calc(column-px(6, 5.5) + var(--external-gutter));
+            }
+
+            &.has-media-on-the-right {
+                #{$el}__content {
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+}
