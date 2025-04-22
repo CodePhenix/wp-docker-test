@@ -21,15 +21,20 @@ fi
 mkdir -p "$LOCAL_BACKUP_DIR" "$LOCAL_UPLOADS_DIR" "$LOCAL_PLUGINS_DIR"
 
 # Dump db
-echo "🛠️ Lancement du script de dump..."
-./export.sh
+# echo "🛠️ Lancement du script de dump..."
+# ./export.sh
 
-if [ $? -eq 0 ]; then
-  echo "✅ Dump de la base de données effectué."
-else
-  echo "❌ Erreur lors du dump de la base de données."
-  exit 1
-fi
+# if [ $? -eq 0 ]; then
+#   echo "✅ Dump de la base de données effectué."
+# else
+#   echo "❌ Erreur lors du dump de la base de données."
+#   exit 1
+# fi
+
+# Sync "uploads" folder
+echo "📂 Synchronisation du dossier dumps..."
+rsync -avz -e "ssh -p $SSH_PORT" "$SSH_USER@$SSH_HOST:$REMOTE_PATH_DUMPS/" "$LOCAL_DUMP_DIR/"
+echo "✅ Dumps synchronisés."
 
 # Sync "uploads" folder
 echo "📂 Synchronisation du dossier uploads..."
