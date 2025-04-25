@@ -1,5 +1,3 @@
-version: '3'
-
 services:
   wp:
     image: wordpress:latest # https://hub.docker.com/_/wordpress/

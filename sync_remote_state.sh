@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Sécuriser le script : 
 # -e : stoppe si erreur
@@ -18,7 +18,7 @@ else
 fi
 
 # Create local folder if needed
-mkdir -p "$LOCAL_BACKUP_DIR" "$LOCAL_UPLOADS_DIR" "$LOCAL_PLUGINS_DIR"
+mkdir -p "$LOCAL_DUMP_DIR" "$LOCAL_UPLOADS_DIR" "$LOCAL_PLUGINS_DIR"
 
 # Dump db
 # echo "🛠️ Lancement du script de dump..."
