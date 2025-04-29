@@ -1,0 +1,124 @@
+/*!
+*   Author : Mikayil QUENUM
+*   Description : Variables du theme  
+*/
+
+// Typographie
+$font-family-base: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-headings: 'Inter', sans-serif;
+$font-family-monospace: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+// Tailles de polices
+$font-size-base: 16px;
+$font-size-xs: 0.75rem;    // 12px
+$font-size-sm: 0.875rem;   // 14px
+$font-size-md: 1rem;       // 16px
+$font-size-lg: 1.125rem;   // 18px
+$font-size-xl: 1.25rem;    // 20px
+$font-size-2xl: 1.5rem;    // 24px
+$font-size-3xl: 1.875rem;  // 30px
+$font-size-4xl: 2.25rem;   // 36px
+$font-size-5xl: 3rem;      // 48px
+
+// Hauteurs de ligne
+$line-height-tight: 1.2;
+$line-height-base: 1.5;
+$line-height-loose: 1.8;
+
+// Espacement de texte
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+$letter-spacing-wider: 0.05em;
+
+// Poids de police
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Couleurs
+$color-primary: #0066cc;
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-dark: darken($color-primary, 10%);
+
+$color-secondary: #6c757d;
+$color-secondary-light: lighten($color-secondary, 10%);
+$color-secondary-dark: darken($color-secondary, 10%);
+
+$color-success: #198754;
+$color-info: #0dcaf0;
+$color-warning: #ffc107;
+$color-danger: #dc3545;
+
+$color-gray-100: #f8f9fa;
+$color-gray-200: #e9ecef;
+$color-gray-300: #dee2e6;
+$color-gray-400: #ced4da;
+$color-gray-500: #adb5bd;
+$color-gray-600: #6c757d;
+$color-gray-700: #495057;
+$color-gray-800: #343a40;
+$color-gray-900: #212529;
+
+$color-text: $color-gray-900;
+$color-text-light: $color-gray-600;
+$color-heading: $color-gray-900;
+$color-link: $color-primary;
+$color-link-hover: darken($color-primary, 15%);
+
+$color-bg: #ffffff;
+$color-bg-alt: $color-gray-100;
+
+// Espacement
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,   // 4px
+  2: $spacer * 0.5,    // 8px
+  3: $spacer,          // 16px
+  4: $spacer * 1.5,    // 24px
+  5: $spacer * 3,      // 48px
+  6: $spacer * 4.5,    // 72px
+  7: $spacer * 6,      // 96px
+);
+
+// Breakpoints
+$breakpoints: (
+  'mobile': 480px,
+  'tablet': 768px,
+  'desktop': 1024px,
+  'large-desktop': 1440px
+);
+
+// Mise en page
+$container-max-width: 1200px;
+$container-padding: $spacer;
+
+// Bordures
+$border-radius-sm: 0.25rem;
+$border-radius: 0.375rem;
+$border-radius-lg: 0.5rem;
+$border-radius-pill: 50rem;
+$border-width: 1px;
+$border-color: $color-gray-300;
+
+// Transitions
+$transition-base: all 0.2s ease-in-out;
+$transition-slow: all 0.3s ease-in-out;
+$transition-fast: all 0.1s ease-in-out;
+
+// Box-shadow
+$box-shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
+$box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+$box-shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
+
+// Z-index
+$z-index-dropdown: 1000;
+$z-index-sticky: 1020;
+$z-index-fixed: 1030;
+$z-index-modal-backdrop: 1040;
+$z-index-modal: 1050;
+$z-index-popover: 1060;
+$z-index-tooltip: 1070;
