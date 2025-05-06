@@ -1,0 +1,41 @@
+name: CD staging
+# SETUP: https://github.com/appleboy/ssh-action
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push or pull request events but only for the master branch
+  push:
+    branches: [main]
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  deploy:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+    environment: staging
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          script_stop: true
+          script: |
+            cd ~/html
+            echo "=========== Git reset hard ==========="
+            git fetch
+            git reset --hard origin/main
+            git status
+            echo "=========== Override docker-compose file ==========="
+            cp docker-compose.staging.yml docker-compose.yml
+            echo "=========== Building project ==========="
+            docker compose build
+            echo "=========== Recreate containers ==========="
+            docker compose up -d
+            echo "=========== SUCCESSFULLY DEPLOYED ==========="
+            echo "===========                       ==========="

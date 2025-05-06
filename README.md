@@ -43,8 +43,8 @@ docker-compose up
 
 This creates two new folders next to your `docker-compose.yml` file.
 
-* `wp-data` – used to store and restore database dumps
-* `wp-app` – the location of your WordPress application
+- `wp-data` – used to store and restore database dumps
+- `wp-app` – the location of your WordPress application
 
 The containers are now built and running. You should be able to access the WordPress installation with the configured IP in the browser address. By default it is `http://127.0.0.1`.
 
@@ -84,8 +84,8 @@ docker-compose down -v
 
 Copy the `docker-compose.yml` file into a new directory. In the directory you create two folders:
 
-* `wp-data` – here you add the database dump
-* `wp-app` – here you copy your existing WordPress code
+- `wp-data` – here you add the database dump
+- `wp-app` – here you copy your existing WordPress code
 
 You can now use the `up` command:
 
@@ -157,4 +157,10 @@ wp plugin list
 You can also visit `http://127.0.0.1:8080` to access phpMyAdmin after starting the containers.
 
 The default username is `root`, and the password is the same as supplied in the `.env` file.
+
 # wp-docker-test
+
+Notes
+A melun, sur le serveur, plusieurs instances ce projet (une par dev avec chacun son URL).
+Chacun dev en FTP sur son instance puis quand une feature est bonne, il push un MR de son code depuis son ordi client.
+=> Voir si le serveur de Melun tiens ça.
